@@ -75,7 +75,7 @@
             // dTPDate
             // 
             this.dTPDate.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dTPDate.Location = new System.Drawing.Point(95, 12);
+            this.dTPDate.Location = new System.Drawing.Point(95, 46);
             this.dTPDate.Name = "dTPDate";
             this.dTPDate.Size = new System.Drawing.Size(200, 23);
             this.dTPDate.TabIndex = 1;
@@ -159,7 +159,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(41, 17);
+            this.label1.Location = new System.Drawing.Point(44, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 16);
             this.label1.TabIndex = 10;
@@ -169,7 +169,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(9, 78);
+            this.label2.Location = new System.Drawing.Point(12, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 16);
             this.label2.TabIndex = 11;
@@ -177,6 +177,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(557, 38);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(217, 198);
@@ -185,7 +186,7 @@
             // 
             // tBReportText
             // 
-            this.tBReportText.Location = new System.Drawing.Point(95, 189);
+            this.tBReportText.Location = new System.Drawing.Point(95, 157);
             this.tBReportText.Multiline = true;
             this.tBReportText.Name = "tBReportText";
             this.tBReportText.Size = new System.Drawing.Size(453, 114);
@@ -204,9 +205,9 @@
             // 
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox2.Image = global::CarReportSystem.Properties.Resources.illust3784;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 157);
+            this.pictureBox2.Location = new System.Drawing.Point(15, 277);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(539, 27);
+            this.pictureBox2.Size = new System.Drawing.Size(533, 27);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 15;
             this.pictureBox2.TabStop = false;
@@ -214,9 +215,9 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::CarReportSystem.Properties.Resources.illust3784;
-            this.pictureBox3.Location = new System.Drawing.Point(12, 43);
+            this.pictureBox3.Location = new System.Drawing.Point(15, 14);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(536, 26);
+            this.pictureBox3.Size = new System.Drawing.Size(533, 26);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 16;
             this.pictureBox3.TabStop = false;
@@ -265,7 +266,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label5.Location = new System.Drawing.Point(24, 200);
+            this.label5.Location = new System.Drawing.Point(24, 157);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 16);
             this.label5.TabIndex = 21;
