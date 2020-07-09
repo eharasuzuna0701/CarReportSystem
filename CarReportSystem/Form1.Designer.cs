@@ -39,7 +39,7 @@
             this.rBOthers = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pBCarImage = new System.Windows.Forms.PictureBox();
             this.tBReportText = new System.Windows.Forms.TextBox();
             this.dGVCarDate = new System.Windows.Forms.DataGridView();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -53,14 +53,20 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btDetaOapen = new System.Windows.Forms.Button();
             this.btDetaSave = new System.Windows.Forms.Button();
-            this.btDateAdditional = new System.Windows.Forms.Button();
+            this.btDateAdd = new System.Windows.Forms.Button();
             this.btDateCorrection = new System.Windows.Forms.Button();
             this.btDateDelete = new System.Windows.Forms.Button();
             this.btClose = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.oFDImage = new System.Windows.Forms.OpenFileDialog();
+            this.sfdSaveData = new System.Windows.Forms.SaveFileDialog();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.oFDsaveFile = new System.Windows.Forms.OpenFileDialog();
+            this.gBMaker = new System.Windows.Forms.GroupBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pBCarImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGVCarDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.gBMaker.SuspendLayout();
             this.SuspendLayout();
             // 
             // cBRecorder
@@ -84,7 +90,7 @@
             // 
             this.cBCarName.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.cBCarName.FormattingEnabled = true;
-            this.cBCarName.Location = new System.Drawing.Point(95, 127);
+            this.cBCarName.Location = new System.Drawing.Point(98, 151);
             this.cBCarName.Name = "cBCarName";
             this.cBCarName.Size = new System.Drawing.Size(200, 24);
             this.cBCarName.TabIndex = 3;
@@ -92,7 +98,7 @@
             // rBToyota
             // 
             this.rBToyota.AutoSize = true;
-            this.rBToyota.Location = new System.Drawing.Point(95, 105);
+            this.rBToyota.Location = new System.Drawing.Point(0, 18);
             this.rBToyota.Name = "rBToyota";
             this.rBToyota.Size = new System.Drawing.Size(47, 16);
             this.rBToyota.TabIndex = 4;
@@ -103,7 +109,7 @@
             // rBNissan
             // 
             this.rBNissan.AutoSize = true;
-            this.rBNissan.Location = new System.Drawing.Point(148, 105);
+            this.rBNissan.Location = new System.Drawing.Point(53, 18);
             this.rBNissan.Name = "rBNissan";
             this.rBNissan.Size = new System.Drawing.Size(47, 16);
             this.rBNissan.TabIndex = 5;
@@ -114,7 +120,7 @@
             // rBhonda
             // 
             this.rBhonda.AutoSize = true;
-            this.rBhonda.Location = new System.Drawing.Point(201, 105);
+            this.rBhonda.Location = new System.Drawing.Point(106, 18);
             this.rBhonda.Name = "rBhonda";
             this.rBhonda.Size = new System.Drawing.Size(51, 16);
             this.rBhonda.TabIndex = 6;
@@ -125,7 +131,7 @@
             // rBSubaru
             // 
             this.rBSubaru.AutoSize = true;
-            this.rBSubaru.Location = new System.Drawing.Point(258, 105);
+            this.rBSubaru.Location = new System.Drawing.Point(163, 18);
             this.rBSubaru.Name = "rBSubaru";
             this.rBSubaru.Size = new System.Drawing.Size(52, 16);
             this.rBSubaru.TabIndex = 7;
@@ -136,7 +142,7 @@
             // rBImportedCar
             // 
             this.rBImportedCar.AutoSize = true;
-            this.rBImportedCar.Location = new System.Drawing.Point(316, 105);
+            this.rBImportedCar.Location = new System.Drawing.Point(221, 18);
             this.rBImportedCar.Name = "rBImportedCar";
             this.rBImportedCar.Size = new System.Drawing.Size(47, 16);
             this.rBImportedCar.TabIndex = 8;
@@ -147,7 +153,7 @@
             // rBOthers
             // 
             this.rBOthers.AutoSize = true;
-            this.rBOthers.Location = new System.Drawing.Point(369, 105);
+            this.rBOthers.Location = new System.Drawing.Point(274, 18);
             this.rBOthers.Name = "rBOthers";
             this.rBOthers.Size = new System.Drawing.Size(54, 16);
             this.rBOthers.TabIndex = 9;
@@ -175,21 +181,21 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "記録者名：";
             // 
-            // pictureBox1
+            // pBCarImage
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(557, 38);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(217, 198);
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
+            this.pBCarImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pBCarImage.Location = new System.Drawing.Point(557, 38);
+            this.pBCarImage.Name = "pBCarImage";
+            this.pBCarImage.Size = new System.Drawing.Size(217, 198);
+            this.pBCarImage.TabIndex = 12;
+            this.pBCarImage.TabStop = false;
             // 
             // tBReportText
             // 
-            this.tBReportText.Location = new System.Drawing.Point(95, 157);
+            this.tBReportText.Location = new System.Drawing.Point(95, 188);
             this.tBReportText.Multiline = true;
             this.tBReportText.Name = "tBReportText";
-            this.tBReportText.Size = new System.Drawing.Size(453, 114);
+            this.tBReportText.Size = new System.Drawing.Size(453, 83);
             this.tBReportText.TabIndex = 13;
             // 
             // dGVCarDate
@@ -200,6 +206,7 @@
             this.dGVCarDate.RowTemplate.Height = 21;
             this.dGVCarDate.Size = new System.Drawing.Size(679, 154);
             this.dGVCarDate.TabIndex = 14;
+            this.dGVCarDate.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVCarDate_Click);
             // 
             // pictureBox2
             // 
@@ -215,7 +222,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::CarReportSystem.Properties.Resources.illust3784;
-            this.pictureBox3.Location = new System.Drawing.Point(15, 14);
+            this.pictureBox3.Location = new System.Drawing.Point(15, 0);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(533, 26);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -231,6 +238,7 @@
             this.btImageOapen.TabIndex = 17;
             this.btImageOapen.Text = "開く";
             this.btImageOapen.UseVisualStyleBackColor = true;
+            this.btImageOapen.Click += new System.EventHandler(this.btImageOapen_Click);
             // 
             // btImageClear
             // 
@@ -241,12 +249,13 @@
             this.btImageClear.TabIndex = 18;
             this.btImageClear.Text = "クリア";
             this.btImageClear.UseVisualStyleBackColor = true;
+            this.btImageClear.Click += new System.EventHandler(this.btImageClear_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label3.Location = new System.Drawing.Point(25, 103);
+            this.label3.Location = new System.Drawing.Point(25, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 16);
             this.label3.TabIndex = 19;
@@ -256,7 +265,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label4.Location = new System.Drawing.Point(41, 130);
+            this.label4.Location = new System.Drawing.Point(41, 154);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 16);
             this.label4.TabIndex = 20;
@@ -266,7 +275,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label5.Location = new System.Drawing.Point(24, 157);
+            this.label5.Location = new System.Drawing.Point(24, 188);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 16);
             this.label5.TabIndex = 21;
@@ -301,6 +310,7 @@
             this.btDetaOapen.TabIndex = 24;
             this.btDetaOapen.Text = "開く";
             this.btDetaOapen.UseVisualStyleBackColor = true;
+            this.btDetaOapen.Click += new System.EventHandler(this.btDetaOapen_Click);
             // 
             // btDetaSave
             // 
@@ -311,16 +321,18 @@
             this.btDetaSave.TabIndex = 25;
             this.btDetaSave.Text = "保存";
             this.btDetaSave.UseVisualStyleBackColor = true;
+            this.btDetaSave.Click += new System.EventHandler(this.btDetaSave_Click);
             // 
-            // btDateAdditional
+            // btDateAdd
             // 
-            this.btDateAdditional.Font = new System.Drawing.Font("MS UI Gothic", 12F);
-            this.btDateAdditional.Location = new System.Drawing.Point(510, 477);
-            this.btDateAdditional.Name = "btDateAdditional";
-            this.btDateAdditional.Size = new System.Drawing.Size(75, 23);
-            this.btDateAdditional.TabIndex = 26;
-            this.btDateAdditional.Text = "追加";
-            this.btDateAdditional.UseVisualStyleBackColor = true;
+            this.btDateAdd.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.btDateAdd.Location = new System.Drawing.Point(510, 477);
+            this.btDateAdd.Name = "btDateAdd";
+            this.btDateAdd.Size = new System.Drawing.Size(75, 23);
+            this.btDateAdd.TabIndex = 26;
+            this.btDateAdd.Text = "追加";
+            this.btDateAdd.UseVisualStyleBackColor = true;
+            this.btDateAdd.Click += new System.EventHandler(this.btDateAdd_Click);
             // 
             // btDateCorrection
             // 
@@ -331,6 +343,7 @@
             this.btDateCorrection.TabIndex = 27;
             this.btDateCorrection.Text = "更新";
             this.btDateCorrection.UseVisualStyleBackColor = true;
+            this.btDateCorrection.Click += new System.EventHandler(this.btDateCorrection_Click);
             // 
             // btDateDelete
             // 
@@ -341,6 +354,7 @@
             this.btDateDelete.TabIndex = 28;
             this.btDateDelete.Text = "削除";
             this.btDateDelete.UseVisualStyleBackColor = true;
+            this.btDateDelete.Click += new System.EventHandler(this.btDateDelete_Click);
             // 
             // btClose
             // 
@@ -351,6 +365,38 @@
             this.btClose.TabIndex = 29;
             this.btClose.Text = "終了";
             this.btClose.UseVisualStyleBackColor = true;
+            this.btClose.Click += new System.EventHandler(this.btClose_Click);
+            // 
+            // oFDImage
+            // 
+            this.oFDImage.FileName = "openFileDialog1";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 30;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // oFDsaveFile
+            // 
+            this.oFDsaveFile.FileName = "openFileDialog1";
+            // 
+            // gBMaker
+            // 
+            this.gBMaker.Controls.Add(this.rBOthers);
+            this.gBMaker.Controls.Add(this.rBToyota);
+            this.gBMaker.Controls.Add(this.rBNissan);
+            this.gBMaker.Controls.Add(this.rBhonda);
+            this.gBMaker.Controls.Add(this.rBSubaru);
+            this.gBMaker.Controls.Add(this.rBImportedCar);
+            this.gBMaker.Location = new System.Drawing.Point(98, 105);
+            this.gBMaker.Name = "gBMaker";
+            this.gBMaker.Size = new System.Drawing.Size(350, 40);
+            this.gBMaker.TabIndex = 31;
+            this.gBMaker.TabStop = false;
+            this.gBMaker.Text = "メーカー";
             // 
             // Form1
             // 
@@ -358,10 +404,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 504);
+            this.Controls.Add(this.gBMaker);
             this.Controls.Add(this.btClose);
             this.Controls.Add(this.btDateDelete);
             this.Controls.Add(this.btDateCorrection);
-            this.Controls.Add(this.btDateAdditional);
+            this.Controls.Add(this.btDateAdd);
             this.Controls.Add(this.btDetaSave);
             this.Controls.Add(this.btDetaOapen);
             this.Controls.Add(this.label7);
@@ -375,24 +422,22 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.dGVCarDate);
             this.Controls.Add(this.tBReportText);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pBCarImage);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.rBOthers);
-            this.Controls.Add(this.rBImportedCar);
-            this.Controls.Add(this.rBSubaru);
-            this.Controls.Add(this.rBhonda);
-            this.Controls.Add(this.rBNissan);
-            this.Controls.Add(this.rBToyota);
             this.Controls.Add(this.cBCarName);
             this.Controls.Add(this.dTPDate);
             this.Controls.Add(this.cBRecorder);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "試乗レポート管理システム";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBCarImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGVCarDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.gBMaker.ResumeLayout(false);
+            this.gBMaker.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -411,7 +456,7 @@
         private System.Windows.Forms.RadioButton rBOthers;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pBCarImage;
         private System.Windows.Forms.TextBox tBReportText;
         private System.Windows.Forms.DataGridView dGVCarDate;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -425,10 +470,15 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btDetaOapen;
         private System.Windows.Forms.Button btDetaSave;
-        private System.Windows.Forms.Button btDateAdditional;
+        private System.Windows.Forms.Button btDateAdd;
         private System.Windows.Forms.Button btDateCorrection;
         private System.Windows.Forms.Button btDateDelete;
         private System.Windows.Forms.Button btClose;
+        private System.Windows.Forms.OpenFileDialog oFDImage;
+        private System.Windows.Forms.SaveFileDialog sfdSaveData;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.OpenFileDialog oFDsaveFile;
+        private System.Windows.Forms.GroupBox gBMaker;
     }
 }
 

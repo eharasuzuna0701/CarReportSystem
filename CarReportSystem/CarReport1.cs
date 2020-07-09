@@ -17,16 +17,16 @@ namespace CarReportSystem
         public string Recorder { get; set; }
         //メーカー
         [System.ComponentModel.DisplayName("メーカー")]
-        //車名
         public CarMaker Maker { get; set; }
+        //車名
         [System.ComponentModel.DisplayName("車名")]
+        public string CarName { get; set; }
         //レポート
-        public string Name { get; set; }
         [System.ComponentModel.DisplayName("レポート")]
         public string Report { get; set; }
         //画像
         [System.ComponentModel.DisplayName("画像")]
-        public Image Picture  { get; set; }
+        public Image CarPicture  { get; set; }
 
         public enum CarMaker
         {
