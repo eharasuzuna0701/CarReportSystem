@@ -16,13 +16,15 @@ namespace CarReportSystem
     public partial class Form1 : Form
     {
         BindingList<CarReport> cars = new BindingList<CarReport>();
-        
+
         public Form1()
         {
             InitializeComponent();
             dGVCarDate.DataSource = cars;
             InitButton();
+            this.carReprtTableAdapter1.Fill(this.infosys202017DataSet1.CarReprt);
         }
+       
 
         private void btDateAdd_Click(object sender, EventArgs e)
         {
@@ -35,7 +37,7 @@ namespace CarReportSystem
                     Recorder = cBRecorder.Text,
                     CarName = cBCarName.Text,
                     CarPicture = pBCarImage.Image,
-                    Report = tBReportText.Text,
+                    Report = dgd.Text,
                 };
                 CbCarNameBox(cBCarName.Text);
                 CbRecorderBox(cBRecorder.Text);
@@ -58,12 +60,12 @@ namespace CarReportSystem
         // クリアメゾット
         void Claer()
         {
-             
+
             cBRecorder.Text = "";
             cBCarName.Text = "";
-            tBReportText.Text = "";
+            dgd.Text = "";
             pBCarImage.Image = null;
-            
+
         }
         void RadioBottonClaer()
         {
@@ -99,7 +101,7 @@ namespace CarReportSystem
             {
                 return CarReport.CarMaker.外車;
             }
-            else if(rBOthers.Checked)
+            else if (rBOthers.Checked)
             {
                 return CarReport.CarMaker.その他;
             }
@@ -124,18 +126,18 @@ namespace CarReportSystem
         {
             pBCarImage.Image = null;
             btImageClear.Enabled = false;
-           
+
         }
 
         private void dGVCarDate_Click(object sender, EventArgs e)
         {
             CarReport selectedCar = cars[dGVCarDate.CurrentRow.Index];
             cBRecorder.Text = selectedCar.Recorder;
-         
+
             cBCarName.Text = selectedCar.CarName;
-            tBReportText.Text = selectedCar.Report;
+            dgd.Text = selectedCar.Report;
             pBCarImage.Image = selectedCar.CarPicture;
-            switch ( selectedCar.Maker)
+            switch (selectedCar.Maker)
             {
                 case CarReport.CarMaker.トヨタ:
                     rBToyota.Checked = true;
@@ -166,9 +168,9 @@ namespace CarReportSystem
                 int carsList = dGVCarDate.CurrentRow.Index;
 
                 cars[carsList].Recorder = cBRecorder.Text;
-                cars[carsList]. Maker= RadioBottonChckNumber();
+                cars[carsList].Maker = RadioBottonChckNumber();
                 cars[carsList].CarName = cBCarName.Text;
-                cars[carsList].Report = tBReportText.Text;
+                cars[carsList].Report = dgd.Text;
                 cars[carsList].CarPicture = pBCarImage.Image;
                 this.dGVCarDate.Refresh();
             }
@@ -264,12 +266,13 @@ namespace CarReportSystem
 
                 }
             }
-            
+
         }
         //終了ボタン
         private void btClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
     }
 }
