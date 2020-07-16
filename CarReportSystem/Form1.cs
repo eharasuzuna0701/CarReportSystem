@@ -22,7 +22,7 @@ namespace CarReportSystem
             InitializeComponent();
             dGVCarDate.DataSource = cars;
             InitButton();
-            this.carReprtTableAdapter1.Fill(this.infosys202017DataSet1.CarReprt);
+            dGVCarDate.Columns[0].Visible = false;
         }
        
 
@@ -163,17 +163,11 @@ namespace CarReportSystem
         //データを更新する
         private void btDateCorrection_Click(object sender, EventArgs e)
         {
-            if (cars.Count != 0)
-            {
-                int carsList = dGVCarDate.CurrentRow.Index;
+            dGVCarDate.CurrentRow.Cells[2].Value = cBRecorder.Text;
 
-                cars[carsList].Recorder = cBRecorder.Text;
-                cars[carsList].Maker = RadioBottonChckNumber();
-                cars[carsList].CarName = cBCarName.Text;
-                cars[carsList].Report = dgd.Text;
-                cars[carsList].CarPicture = pBCarImage.Image;
-                this.dGVCarDate.Refresh();
-            }
+            this.Validate();
+            this.carReprtBindingSource.EndEdit();
+            this.tableAdapterManager1.UpdateAll(this.infosys202017DataSet1);
         }
         // 削除ボタン
         private void btDateDelete_Click(object sender, EventArgs e)
@@ -215,58 +209,22 @@ namespace CarReportSystem
         //開くボタン
         private void btDetaOapen_Click(object sender, EventArgs e)
         {
-            //セーブファイルダイアログを開く
-            //オープンファイルダイアログを開く
-
-            if (oFDsaveFile.ShowDialog() == DialogResult.OK)
-            {
-
-                using (FileStream fs = new FileStream(oFDsaveFile.FileName, FileMode.Open))
-                {
-                    try
-                    {
-                        BinaryFormatter formatter = new BinaryFormatter();
-                        //逆シリアル化して読み込む
-                        cars = (BindingList<CarReport>)formatter.Deserialize(fs);
-                        //データグリットビューに再設定
-                        dGVCarDate.DataSource = cars;
-                        //選択されている箇所を各コントロールへ表示
-                        dGVCarDate_Click(sender, e);
-                    }
-                    catch (SerializationException se)
-                    {
-                        Console.WriteLine("Failed to serialize. Reason: " + se.Message);
-                        throw;
-                    }
-                }
-            }
+            this.carReprtTableAdapter1.Fill(this.infosys202017DataSet1.CarReprt);
+           
         }
-        //保存ボタン
-        private void btDetaSave_Click(object sender, EventArgs e)
+        public static Image ByteArrayToImage(byte[] byteData)
         {
-            //セーブファイルダイアログを開く
-            if (sfdSaveData.ShowDialog() == DialogResult.OK)
-            {
+            ImageConverter imgconv = new ImageConverter();
+            Image img = (Image)imgconv.ConvertFrom(byteData);
+            return img;
+        }
 
-                BinaryFormatter formatter = new BinaryFormatter();
-
-                //ファイルストリームを表示する
-                using (FileStream fs = new FileStream(sfdSaveData.FileName, FileMode.Create))
-                {
-                    try
-                    {
-                        //シリアル化する
-                        formatter.Serialize(fs, cars);
-                    }
-                    catch (SerializationException se)
-                    {
-                        Console.WriteLine("Failed to deserialize. Reason: " + se.Message);
-                        throw;
-                    }
-
-                }
-            }
-
+        // Imageオブジェクトをバイト配列に変換
+        public static byte[] ImageToByteArray(Image img)
+        {
+            ImageConverter imgconv = new ImageConverter();
+            byte[] byteData = (byte[])imgconv.ConvertTo(img, typeof(byte[]));
+            return byteData;
         }
         //終了ボタン
         private void btClose_Click(object sender, EventArgs e)
@@ -274,5 +232,37 @@ namespace CarReportSystem
             this.Close();
         }
 
+        private void dGVCarDate_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var maker = dGVCarDate.CurrentRow.Cells[3].Value;
+            setRadioButtonMaker((string)maker);
+        }
+
+        private void setRadioButtonMaker(String carMaker)
+        {
+            switch (carMaker)
+            {
+                case "DEFALT":
+                    break;
+                case "トヨタ":
+                    rBToyota.Checked = true;
+                    break;
+                case "ホンダ":
+                    rBhonda.Checked = true;
+                    break;
+                case "日産":
+                    rBNissan.Checked = true;
+                    break;
+                case "スバル":
+                    rBSubaru.Checked = true;
+                    break;
+                case "外車":
+                    rBImportedCar.Checked = true;
+                    break;
+                case "その他":
+                    rBOthers.Checked = true;
+                    break;
+            }
+        }
     }
 }
