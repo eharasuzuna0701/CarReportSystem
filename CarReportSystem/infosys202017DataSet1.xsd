@@ -41,7 +41,7 @@ SELECT id, CrenderData, Recorder, Maker, CarName, Reprt, Pictre FROM CarReprt WH
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT id, CrenderData, Recorder, Maker, CarName, Reprt, Pictre FROM CarReprt</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -91,7 +91,7 @@ SELECT id, CrenderData, Recorder, Maker, CarName, Reprt, Pictre FROM CarReprt WH
   <xs:element name="infosys202017DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="infosys202017DataSet1" msprop:Generator_UserDSName="infosys202017DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="CarReprt" msprop:Generator_TableClassName="CarReprtDataTable" msprop:Generator_TableVarName="tableCarReprt" msprop:Generator_RowChangedName="CarReprtRowChanged" msprop:Generator_TablePropName="CarReprt" msprop:Generator_RowDeletingName="CarReprtRowDeleting" msprop:Generator_RowChangingName="CarReprtRowChanging" msprop:Generator_RowEvHandlerName="CarReprtRowChangeEventHandler" msprop:Generator_RowDeletedName="CarReprtRowDeleted" msprop:Generator_RowClassName="CarReprtRow" msprop:Generator_UserTableName="CarReprt" msprop:Generator_RowEvArgName="CarReprtRowChangeEvent">
+        <xs:element name="CarReprt" msprop:Generator_TableClassName="CarReprtDataTable" msprop:Generator_TableVarName="tableCarReprt" msprop:Generator_TablePropName="CarReprt" msprop:Generator_RowDeletingName="CarReprtRowDeleting" msprop:Generator_RowChangingName="CarReprtRowChanging" msprop:Generator_RowEvHandlerName="CarReprtRowChangeEventHandler" msprop:Generator_RowDeletedName="CarReprtRowDeleted" msprop:Generator_UserTableName="CarReprt" msprop:Generator_RowChangedName="CarReprtRowChanged" msprop:Generator_RowEvArgName="CarReprtRowChangeEvent" msprop:Generator_RowClassName="CarReprtRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />

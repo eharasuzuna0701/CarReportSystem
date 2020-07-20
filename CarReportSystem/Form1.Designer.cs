@@ -43,7 +43,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pBCarImage = new System.Windows.Forms.PictureBox();
-            this.dgd = new System.Windows.Forms.TextBox();
+            this.tbReport = new System.Windows.Forms.TextBox();
             this.carReprtBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -74,6 +74,7 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.infosys202017DataSet11 = new CarReportSystem.infosys202017DataSet1();
             ((System.ComponentModel.ISupportInitialize)(this.carReprtBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infosys202017DataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBCarImage)).BeginInit();
@@ -82,11 +83,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.gBMaker.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGVCarDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infosys202017DataSet11)).BeginInit();
             this.SuspendLayout();
             // 
             // cBRecorder
             // 
-            this.cBRecorder.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.carReprtBindingSource1, "Recorder", true));
             this.cBRecorder.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.cBRecorder.FormattingEnabled = true;
             this.cBRecorder.Location = new System.Drawing.Point(95, 92);
@@ -106,7 +107,6 @@
             // 
             // dTPDate
             // 
-            this.dTPDate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.carReprtBindingSource1, "CrenderData", true));
             this.dTPDate.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.dTPDate.Location = new System.Drawing.Point(95, 63);
             this.dTPDate.Name = "dTPDate";
@@ -115,7 +115,6 @@
             // 
             // cBCarName
             // 
-            this.cBCarName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.carReprtBindingSource1, "CarName", true));
             this.cBCarName.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.cBCarName.FormattingEnabled = true;
             this.cBCarName.Location = new System.Drawing.Point(98, 168);
@@ -219,14 +218,13 @@
             this.pBCarImage.TabIndex = 12;
             this.pBCarImage.TabStop = false;
             // 
-            // dgd
+            // tbReport
             // 
-            this.dgd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.carReprtBindingSource1, "Reprt", true));
-            this.dgd.Location = new System.Drawing.Point(95, 217);
-            this.dgd.Multiline = true;
-            this.dgd.Name = "dgd";
-            this.dgd.Size = new System.Drawing.Size(453, 83);
-            this.dgd.TabIndex = 13;
+            this.tbReport.Location = new System.Drawing.Point(95, 217);
+            this.tbReport.Multiline = true;
+            this.tbReport.Name = "tbReport";
+            this.tbReport.Size = new System.Drawing.Size(453, 83);
+            this.tbReport.TabIndex = 13;
             // 
             // carReprtBindingSource
             // 
@@ -439,7 +437,7 @@
             this.dGVCarDate.RowTemplate.Height = 21;
             this.dGVCarDate.Size = new System.Drawing.Size(751, 161);
             this.dGVCarDate.TabIndex = 31;
-            this.dGVCarDate.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVCarDate_CellContentClick);
+            this.dGVCarDate.Click += new System.EventHandler(this.dGVCarDate_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -484,6 +482,11 @@
             this.dataGridViewImageColumn1.HeaderText = "Pictre";
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             // 
+            // infosys202017DataSet11
+            // 
+            this.infosys202017DataSet11.DataSetName = "infosys202017DataSet1";
+            this.infosys202017DataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -506,7 +509,7 @@
             this.Controls.Add(this.btImageOapen);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.dgd);
+            this.Controls.Add(this.tbReport);
             this.Controls.Add(this.pBCarImage);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -526,6 +529,7 @@
             this.gBMaker.ResumeLayout(false);
             this.gBMaker.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGVCarDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infosys202017DataSet11)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -545,7 +549,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pBCarImage;
-        private System.Windows.Forms.TextBox dgd;
+        private System.Windows.Forms.TextBox tbReport;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btImageOapen;
@@ -578,6 +582,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private infosys202017DataSet1 infosys202017DataSet11;
     }
 }
 

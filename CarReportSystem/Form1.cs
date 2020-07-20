@@ -20,7 +20,7 @@ namespace CarReportSystem
         public Form1()
         {
             InitializeComponent();
-            dGVCarDate.DataSource = cars;
+            //dGVCarDate.DataSource = cars;
             InitButton();
             dGVCarDate.Columns[0].Visible = false;
         }
@@ -37,7 +37,7 @@ namespace CarReportSystem
                     Recorder = cBRecorder.Text,
                     CarName = cBCarName.Text,
                     CarPicture = pBCarImage.Image,
-                    Report = dgd.Text,
+                    Report = tbReport.Text,
                 };
                 CbCarNameBox(cBCarName.Text);
                 CbRecorderBox(cBRecorder.Text);
@@ -63,7 +63,7 @@ namespace CarReportSystem
 
             cBRecorder.Text = "";
             cBCarName.Text = "";
-            dgd.Text = "";
+            tbReport.Text = "";
             pBCarImage.Image = null;
 
         }
@@ -135,7 +135,7 @@ namespace CarReportSystem
             cBRecorder.Text = selectedCar.Recorder;
 
             cBCarName.Text = selectedCar.CarName;
-            dgd.Text = selectedCar.Report;
+            tbReport.Text = selectedCar.Report;
             pBCarImage.Image = selectedCar.CarPicture;
             switch (selectedCar.Maker)
             {
@@ -163,8 +163,13 @@ namespace CarReportSystem
         //データを更新する
         private void btDateCorrection_Click(object sender, EventArgs e)
         {
-            dGVCarDate.CurrentRow.Cells[2].Value = cBRecorder.Text;
 
+            dGVCarDate.CurrentRow.Cells[3].Value = dataRadioButtonMaker();
+            dGVCarDate.CurrentRow.Cells[1].Value = dTPDate.Value;
+            dGVCarDate.CurrentRow.Cells[2].Value = cBRecorder.Text;
+            dGVCarDate.CurrentRow.Cells[4].Value = cBCarName.Text;
+            dGVCarDate.CurrentRow.Cells[5].Value = tbReport.Text;
+            dGVCarDate.CurrentRow.Cells[6].Value = pBCarImage.Image;
             this.Validate();
             this.carReprtBindingSource.EndEdit();
             this.tableAdapterManager1.UpdateAll(this.infosys202017DataSet1);
@@ -232,10 +237,22 @@ namespace CarReportSystem
             this.Close();
         }
 
-        private void dGVCarDate_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private string dataRadioButtonMaker()
         {
-            var maker = dGVCarDate.CurrentRow.Cells[3].Value;
-            setRadioButtonMaker((string)maker);
+            if (rBToyota.Checked == true){
+                return rBToyota.Text;
+            }else if(rBhonda.Checked == true){
+                return rBhonda.Text;
+            }else if(rBNissan.Checked == true){
+                return rBNissan.Text;
+            }else if(rBSubaru.Checked == true)
+            {   return rBSubaru.Text;
+            }else if(rBOthers.Checked == true){
+                return rBOthers.Text;
+            }else {
+                return rBOthers.Text;
+            }
+          
         }
 
         private void setRadioButtonMaker(String carMaker)
@@ -263,6 +280,18 @@ namespace CarReportSystem
                     rBOthers.Checked = true;
                     break;
             }
+        }
+
+        private void dGVCarDate_CellContentClick(object sender, EventArgs e)
+        {
+            dTPDate.Value = (DateTime)dGVCarDate.CurrentRow.Cells[1].Value;
+            cBRecorder.Text = dGVCarDate.CurrentRow.Cells[2].Value.ToString();
+            var maker = dGVCarDate.CurrentRow.Cells[3].Value;
+            cBCarName.Text = dGVCarDate.CurrentRow.Cells[4].Value.ToString();
+            tbReport.Text = dGVCarDate.CurrentRow.Cells[5].Value.ToString();
+            SaidButton();
+            setRadioButtonMaker((String)maker);
+
         }
     }
 }
