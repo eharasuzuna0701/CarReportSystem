@@ -162,8 +162,7 @@ namespace CarReportSystem
         }
         //データを更新する
         private void btDateCorrection_Click(object sender, EventArgs e)
-        {
-
+        { 
             dGVCarDate.CurrentRow.Cells[3].Value = dataRadioButtonMaker();
             dGVCarDate.CurrentRow.Cells[1].Value = dTPDate.Value;
             dGVCarDate.CurrentRow.Cells[2].Value = cBRecorder.Text;
@@ -210,6 +209,7 @@ namespace CarReportSystem
         {
             btDateCorrection.Enabled = true;
             btDateDelete.Enabled = true;
+            btImageClear.Enabled = true;
         }
         //開くボタン
         private void btDetaOapen_Click(object sender, EventArgs e)
@@ -217,6 +217,7 @@ namespace CarReportSystem
             this.carReprtTableAdapter1.Fill(this.infosys202017DataSet1.CarReprt);
            
         }
+        //画像を表示する
         public static Image ByteArrayToImage(byte[] byteData)
         {
             ImageConverter imgconv = new ImageConverter();
@@ -231,6 +232,7 @@ namespace CarReportSystem
             byte[] byteData = (byte[])imgconv.ConvertTo(img, typeof(byte[]));
             return byteData;
         }
+
         //終了ボタン
         private void btClose_Click(object sender, EventArgs e)
         {
@@ -282,6 +284,7 @@ namespace CarReportSystem
             }
         }
 
+        //データ表示
         private void dGVCarDate_CellContentClick(object sender, EventArgs e)
         {
             dTPDate.Value = (DateTime)dGVCarDate.CurrentRow.Cells[1].Value;
@@ -289,9 +292,26 @@ namespace CarReportSystem
             var maker = dGVCarDate.CurrentRow.Cells[3].Value;
             cBCarName.Text = dGVCarDate.CurrentRow.Cells[4].Value.ToString();
             tbReport.Text = dGVCarDate.CurrentRow.Cells[5].Value.ToString();
+            try{
+                pBCarImage.Image = ByteArrayToImage((byte[])dGVCarDate.CurrentRow.Cells[6].Value);
+               }
+            catch (InvalidCastException){
+                pBCarImage.Image = null;
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             SaidButton();
             setRadioButtonMaker((String)maker);
 
+        }
+
+        private void btSearchExe_Click(object sender, EventArgs e)
+        {
+            this.carReprtTableAdapter1.FillByCarName(this.infosys202017DataSet1.CarReprt, tBSearchCarName.Text);
+            this.carReprtTableAdapter1.FillByMekay(this.infosys202017DataSet1.CarReprt, tBSarchMaker.Text);
+            this.carReprtTableAdapter1.FillByCrenderDate
+                (this.infosys202017DataSet1.CarReprt, dTPSarchCrenderDate.Value.ToString());
         }
     }
 }
